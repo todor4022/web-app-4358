@@ -6,11 +6,10 @@ import { eq, desc, asc, like, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export async function getTransactions(search?: string, sortBy?: string, order?: "asc" | "desc") {
-    // @ts-ignore
     let query = db.select().from(transactions);
 
     if (search) {
-        // @ts-ignore
+        // @ts-expect-error: Drizzle type mismatch
         query = query.where(
             or(
                 like(transactions.beneficiary, `%${search}%`),
@@ -22,16 +21,16 @@ export async function getTransactions(search?: string, sortBy?: string, order?: 
     const orderFn = order === "asc" ? asc : desc;
 
     if (sortBy === "date") {
-        // @ts-ignore
+        // @ts-expect-error: Drizzle type mismatch
         query = query.orderBy(orderFn(transactions.date));
     } else if (sortBy === "amount") {
-        // @ts-ignore
+        // @ts-expect-error: Drizzle type mismatch
         query = query.orderBy(orderFn(transactions.amount));
     } else if (sortBy === "beneficiary") {
-        // @ts-ignore
+        // @ts-expect-error: Drizzle type mismatch
         query = query.orderBy(orderFn(transactions.beneficiary));
     } else {
-        // @ts-ignore
+        // @ts-expect-error: Drizzle type mismatch
         query = query.orderBy(desc(transactions.date));
     }
 

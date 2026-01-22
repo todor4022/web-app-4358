@@ -15,7 +15,7 @@ export async function login(formData: FormData) {
     });
 
     if (!user || user.password !== password) {
-        return { error: "Invalid credentials" };
+        return;
     }
 
     const cookieStore = await cookies();
