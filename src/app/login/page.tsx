@@ -14,7 +14,7 @@ export default function LoginPage() {
                         Enter your credentials to access your account
                     </CardDescription>
                 </CardHeader>
-                <form action={login}>
+                <form action={async (formData) => { await login(formData); }}>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="username">Username</Label>
