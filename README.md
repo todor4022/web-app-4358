@@ -32,29 +32,16 @@ A web application for managing financial transactions.
 
 ### Installation
 
-1. Clone or download the project.
-2. Install dependencies:
+Install dependencies:
 
-   ```bash
-   bun install
-   ```
-
-### Database Setup
-
-1. Push the schema to the local SQLite database:
-
-   ```bash
-   bunx drizzle-kit push
-   ```
-2. Seed the database with initial data:
-
-   ```bash
-   bun src/db/seed.ts
-   ```
+```bash
+bun install
+```
 
 ### Running the App
 
 Start the development server:
+
 ```bash
 bun run dev
 ```
