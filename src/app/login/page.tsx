@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { login } from "@/lib/auth";
 
 export default function LoginPage() {
-    "use server"
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
             <Card className="w-full max-w-md">
